@@ -5,7 +5,6 @@ A simple music player project (and my first project) that builds upon java's Cli
 ## Controls
 
 Shortcuts to controls can be activated by pressing the corresponding letter on the keyboard, or by spelling out the command entirely:
-|  |  |  |  |
 | ------------- | ------------- |  -------------  | ------------- |
 | q - volume down | w - mute | e - volume up | r - scroll up |
 | a - previous | s - play/pause | d - next | f - scroll up |
