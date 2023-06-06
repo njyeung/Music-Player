@@ -1,4 +1,4 @@
-volume:8
+volume:10
 workingDirectory:Library (All Songs)
-curr:15
-position:59
+curr:0
+position:0
