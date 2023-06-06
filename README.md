@@ -32,6 +32,6 @@ The project contains 3 notable files
 
 ## Credit
 
-`youtube-dl` is used to download wav files from youtube - [youtube-dl](https://github.com/ytdl-org/youtube-dl)
-`ffmpeg` is used by youtube-dl to convert mp3 files to wav files - [ffmpeg](https://github.com/FFmpeg/FFmpeg)
-`jansi` is used to color code console outputs - [jansi](https://github.com/fusesource/jansi)
+- `youtube-dl` is used to download wav files from youtube - [youtube-dl](https://github.com/ytdl-org/youtube-dl)
+- `ffmpeg` is used by youtube-dl to convert mp3 files to wav files - [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+- `jansi` is used to color code console outputs - [jansi](https://github.com/fusesource/jansi)
