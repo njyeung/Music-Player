@@ -1,6 +1,6 @@
 ## Muply
 
-A simple music player project (and my first project) that builds upon java's Clip class.
+A simple music player project (and my first project) that builds upon java's Clip class. This app utilizes youtube-dl to download music from youtube and replay it ad-free. Users can also place in their own wav files into the /music folder.
 
 ## Controls
 
@@ -18,7 +18,7 @@ The workspace contains 4 folders:
 
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies. This project uses Jansi to color code console outputs
-- `music`: folder to maintain audio files
+- `music`: folder to maintain audio files. The project is automatically loaded with Bruh.wav. Users can place their own wav files in this folder for them to be automatically loaded upon the next startup of the app.
 - `ffmpeg`: youtube-dl uses ffmpeg to convert youtube downloads into wav format
 
 ## Notable Files
