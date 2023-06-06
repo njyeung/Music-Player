@@ -1,0 +1,86 @@
+NEW PLAYLIST
+Gusare
+music\One's Mind.wav
+music\Can't Be Right.wav
+music\Obenkyou Shitoiteyo.wav
+music\Hunch Gray.wav
+music\Have A.wav
+music\Engine Oil.wav
+music\Darken.wav
+music\MILABO.wav
+music\Loneliness.wav
+music\Crop.wav
+music\Hypersomnia.wav
+music\Fastening.wav
+END PLAYLIST
+NEW PLAYLIST
+Nobi Shigusa Korite
+music\Flow Different.wav
+music\QUILT.wav
+music\Inside Joke.wav
+music\Neko Reset.wav
+music\Kisumi at Midnight.wav
+music\Stay Foolish.wav
+END PLAYLIST
+NEW PLAYLIST
+Bocchi the Rock
+music\Seishun Complex.wav
+music\Hitoribocchi Tokyo.wav
+music\Distortion!!.wav
+music\Secret Base.wav
+music\Guitar, Loneliness and Blue Planet.wav
+music\I Can't Sing a Love Song.wav
+music\That Band.wav
+music\Karakara.wav
+music\The Little Sea.wav
+music\What Is Wrong With.wav
+music\Never Forget.wav
+music\If I Could Be a Constellation.wav
+music\Flashbacker.wav
+music\Rockn' Roll, Morning Light Falls on You.wav
+music\Into the Light.wav
+music\Blue Spring and Western Sky.wav
+END PLAYLIST
+NEW PLAYLIST
+ASMR
+music\Rizuna - Nilou.wav
+music\Rizuna - Kiara.wav
+music\Rizuna - Yae Miko.wav
+music\Rizuna - Ganyu.wav
+END PLAYLIST
+NEW PLAYLIST
+Agarwood
+music\Hanaichi Monnme.wav
+music\Time Left.wav
+music\Neko Reset.wav
+music\Kira Killer.wav
+music\Nareai Serve.wav
+music\Inside Joke.wav
+music\Summer Slack.wav
+music\QUILT.wav
+music\Intrusion.wav
+music\Stay Foolish.wav
+music\Blush.wav
+music\Mirror Tune.wav
+music\Superficial Me.wav
+END PLAYLIST
+NEW PLAYLIST
+Return of the Dream Canteen
+music\Tippa My Tongue - RHCP.wav
+music\Peace and Love - RHCP.wav
+music\Reach Out - RHCP.wav
+music\Eddie - RHCP.wav
+music\Fake As Fu@k - RHCP.wav
+music\Bella - RHCP.wav
+music\Roulette - RHCP.wav
+music\My Cigarette - RHCP.wav
+music\Afterlife - RHCP.wav
+music\Shoot Me A Smile - RHCP.wav
+music\Handful - RHCP.wav
+music\The Drummer - RHCP.wav
+music\Bag of Grins - RHCP.wav
+music\La La La La La La La La - RHCP.wav
+music\Copperbelly - RHCP.wav
+music\Carry Me Home - RHCP.wav
+music\In The Snow - RHCP.wav
+END PLAYLIST
