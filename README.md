@@ -1,18 +1,35 @@
-## Getting Started
+## Muply
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple music player project (and my first project) that builds upon java's Clip class.
+
+## Controls
+
+|`q` - volume down|`w` - mute|`e` - volume up|`r` - scroll up|
+|`a` - previous|`s` - play/pause|`d` - next|`f` - scroll up|
+|`z` - skip back|`x` - shuffle|`c` - skip forward|`v` - interact menu|
+|`space` - home|
 
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+The workspace contains 4 folders:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `lib`: the folder to maintain dependencies. This project uses Jansi to color code console outputs
+- `music`: folder to maintain audio files
+- `ffmpeg`: youtube-dl uses ffmpeg to convert youtube downloads into wav format
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Notable Files
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+The project contains 3 notable files
 
-## Dependency Management
+- `Muply.jar`: Executable to run the program
+- `Settings.txt`: Stores settings for the music player
+- `Playlists.txt`: Stores playlists for the music player
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+## Credit
+
+`youtube-dl` is used to download wav files from youtube - [youtube-dl](https://github.com/ytdl-org/youtube-dl)
+`ffmpeg` is used by youtube-dl to convert mp3 files to wav files - [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+`jansi` is used to color code console outputs - [jansi](https://github.com/fusesource/jansi)
+
