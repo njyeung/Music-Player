@@ -8,6 +8,12 @@ A simple music player project (and my first project) that builds upon java's Cli
 | a - previous | s - play/pause | d - next | f - scroll up |
 | z - skip back | x - shuffle | c - skip forward | v - interact menu |
 
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 ## Folder Structure
 
 The workspace contains 4 folders:
