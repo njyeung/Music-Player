@@ -12,7 +12,7 @@ A simple music player project (and my first project) that builds upon java's Cli
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell|
 
 ## Folder Structure
 
