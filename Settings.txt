@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 volume:8
 workingDirectory:Agarwood
 curr:1
+=======
+volume:10
+workingDirectory:Library (All Songs)
+curr:0
+>>>>>>> db02d168902d8380662fb1a6e0137d5d02cd3242
 position:0
