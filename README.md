@@ -5,7 +5,7 @@ A simple music player project (and my first project) that builds upon java's Cli
 ## Controls
 
 
-| Column One  | Column Two | Column Three | Column Four |
+|  |  |  |  |
 | ------------- | ------------- |  -------------  | ------------- |
 | q - volume down | w - mute | e - volume up | r - scroll up |
 | a - previous | s - play/pause | d - next | f - scroll up |
