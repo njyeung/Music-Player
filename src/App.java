@@ -50,7 +50,7 @@ public class App {
     public static Song currSong = null;
     public static int scrollIndex = 0;
     // Handles if the system can print something. Used for operations such as while creating a playlist
-    public static boolean canPrint = true;
+    public static boolean canPrint = true; 
 
     public static void main(String[] args) throws Exception {
         AnsiConsole.systemInstall();
