@@ -4,9 +4,9 @@ A simple music player project (and my first project) that builds upon java's Cli
 
 ## Controls
 
-|q - volume down|w - mute|e - volume up|r - scroll up|
-|a - previous|s - play/pause|d - next|f - scroll up|
-|z - skip back|x - shuffle|c - skip forward|v - interact menu|
+| q - volume down | w - mute | e - volume up | r - scroll up |
+| a - previous | s - play/pause | d - next | f - scroll up |
+| z - skip back | x - shuffle | c - skip forward | v - interact menu |
 
 ## Folder Structure
 
