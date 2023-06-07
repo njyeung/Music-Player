@@ -1,6 +1,6 @@
 ## Muply
 
-A simple music player project (and my first project) that builds upon java's Clip class. This app utilizes youtube-dl to download music from youtube and replay it ad-free. Users can also place in their own wav files into the /music folder.
+A simple music player project (and my first project) that builds upon java's Clip class. This app utilizes youtube-dl to download music from youtube and replay it ad-free. Users can also place their own wav files into the /music folder.
 
 ## Controls
 
