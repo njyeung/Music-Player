@@ -97,6 +97,10 @@ public class App {
                     }
                 }
             }
+            if(input.equals("//") | input.equals("exit")) {
+                DataManager.saveSettings();
+                System.exit(0);
+            }
             if(input.equals("r") | input.equals("scroll up")) {
                 scrollIndex = scrollIndex-2;
             }
@@ -520,6 +524,18 @@ public class App {
 
         System.out.println(separator);
         System.out.println(percentTitleVol);
+
+
+        // Prints control cheatsheet lol
+        //System.out.println("1234567890123456789 | 1234567890123456789 | 1234567890123456789 | 1234567890123456789");
+        System.out.println();
+        System.out.println();
+        System.out.println(ANSI_RED);
+        System.out.println("|  q - Volume down   |      w - Mute       |    e - Volume up    |     r -Scroll up   |");
+        System.out.println("|   a - Previous     |   s - Pause/Play    |     d - Next        |    f -Scroll down  |");
+        System.out.println("|  z - Seek forward  |     x - Shuffle     |  c - Seek backward  |     v - Interact   |");
+        System.out.println("|                    |               space - back                |      // - exit     |");
+        System.out.println(ANSI_RESET);
     }
 
     /*
