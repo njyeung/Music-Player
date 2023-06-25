@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.lang.Thread;
 
 /*
  * ONLY OBJECT OF INSTANCE LIBRARY SHOULD EXIST AT ONCE. THIS OBJECT HOLDS ALL THE SONGS AND HANDLES LOADING IN SONGS
@@ -45,13 +46,50 @@ public class Library extends MusicCollection {
         }
     }
 
+    /*
+     *  Helper multithread class for loading in songs
+     */
+    class Thready implements Runnable {
+            private File file;
+            private MusicCollection collection;
+            public Thready(File file, MusicCollection collection) {
+                this.collection = collection;
+                this.file = file;
+            }
+
+            public void run() {
+                try{
+                    collection.add(new Song(file));
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    /*
+    *  Loads in all songs from the folder specified in the constructor
+    *  Uses Thready to speed up loading
+    */
     public void loadSongs() {
         File musicPath = new File(fileName);
         File[] allFiles = musicPath.listFiles();
         
+        // Multithreading
+        ArrayList<Thread> threadList = new ArrayList<Thread>();
         for(int i = 0; i<allFiles.length; i++){ 
+            File file = allFiles[i];
+            Thread thread = new Thread(new Thready(file, this));
+            threadList.add(thread);
+            thread.start();
+            System.out.println("Started Thread " + (i+1) + " of " + allFiles.length);
+        }
+        
+        // Wait for all threads to finish
+        for(Thread thread : threadList) {
             try{
-                super.add(new Song(allFiles[i]));
+                thread.join();
+                System.out.println("Joined Thread" + thread.getId());
             } catch(Exception e) {
                 e.printStackTrace();
             }
