@@ -22,6 +22,6 @@ public class Launcher {
 
         String[] command = {"cmd.exe" , "/c", "start" , "cmd.exe", bruh};
         ProcessBuilder probuilder = new ProcessBuilder( command );
-        Process process = probuilder.start();
+        probuilder.start();
     }
 }

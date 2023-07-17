@@ -19,6 +19,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Song {
     // Basic song metadata
     public String title; // Name of the song
+    public String artist; // Name of artist
     public int lengthInSeconds = 0; // Length of the song in seconds
     public File file; // File object of the song
     public Long fileSize = 0L; // Size in bytes
@@ -39,6 +40,7 @@ public class Song {
         // Loading generic metadata from File
         this.file = file;
         this.title = file.getName().substring(0, file.getName().length()-4);
+        this.artist = null;
         fileSize = file.length();
 
         // Loading advanced metadata from File
@@ -154,8 +156,14 @@ public class Song {
     }
 
     /*
-     *  Get functions for data
+     *  Get and set functions for data
      */
+    public void setArtist(String name) {
+        artist = name;
+    }
+    public String getArtist() {
+        return artist;
+    }
     public String getTitle() {
         return title;
     }

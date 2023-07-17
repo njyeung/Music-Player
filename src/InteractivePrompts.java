@@ -39,11 +39,10 @@ public class InteractivePrompts {
 
             System.out.println(ANSI_YELLOW + "Library Operations:" + ANSI_RESET);
             System.out.println(ANSI_PURPLE + "1. Download a song/playlist from youtube" + ANSI_RESET);
-            System.out.println(ANSI_PURPLE + "2. Download a song/playlist from youtube and create a playlist for them" + ANSI_RESET);
-            System.out.println(ANSI_PURPLE + "3. Create a new playlist" + ANSI_RESET);
-            System.out.println(ANSI_PURPLE + "4. [RENAME] a song" + ANSI_RESET);
-            System.out.println(ANSI_PURPLE + "5. [DELETE] a playlist" + ANSI_RESET);
-            System.out.println(ANSI_PURPLE + "6. [DELETE] a song" + ANSI_RESET);
+            System.out.println(ANSI_PURPLE + "2. Create a new playlist" + ANSI_RESET);
+            System.out.println(ANSI_PURPLE + "3. [RENAME] a song" + ANSI_RESET);
+            System.out.println(ANSI_PURPLE + "4. [DELETE] a playlist" + ANSI_RESET);
+            System.out.println(ANSI_PURPLE + "5. [DELETE] a song" + ANSI_RESET);
             System.out.println();
             System.out.println(ANSI_CYAN + "ENTER A NUMBER OR HIT ENTER TO EXIT" + ANSI_RESET);
 
@@ -56,51 +55,15 @@ public class InteractivePrompts {
                 downloadMusic();
             }
             if(input.equals("2")) {
-                // Downloads songs and adds them to the library
-                int songsDownloaded = downloadMusic();
-                
-                App.canPrint = false;
-
-                //Clear terminal
-                System.out.print("\033[H\033[2J");  
-                System.out.flush(); 
-
-                // Prompts user for the name of the new playlist (Doesn't allow for blank exiting)
-                System.out.println(ANSI_CYAN + "ENTER THE NAME OF THE NEW PLAYLIST" + ANSI_RESET);
-                String name = "";
-                while(true) {
-                    name = App.scan.nextLine();
-                    boolean canBreak = true;
-                    for(int i = 0; i<App.playlists.size(); i++) {
-                        if(App.playlists.get(i).name.equals(name)) {
-                            System.out.println(ANSI_RED + "THERE IS ALREADY A PLAYLIST NAMED " + ANSI_RESET + ANSI_RED_BACKGROUND + name + ANSI_RESET);
-                            System.out.println(ANSI_CYAN + "ENTER A NEW NAME" + ANSI_RESET);
-                            canBreak = false;
-                        }
-                    }
-                    if(canBreak == true) {
-                        break;
-                    }
-                }
-
-                // Gets an arraylist of the downloaded songs from library given the return value of downloadMusic()
-                ArrayList<Song> songs = new ArrayList<Song>();
-                for(int i = 1; i<=songsDownloaded; i++) {
-                    songs.add(App.library.originalSongList.get(i-1));
-                }
-
-                createPlaylist(name, songs);
-            }
-            if(input.equals("3")) {
                 createPlaylist();
             }
-            if(input.equals("4")) {
+            if(input.equals("3")) {
                 renameSong();
             }
-            if(input.equals("5")) {
+            if(input.equals("4")) {
                 deletePlaylist();
             }
-            if(input.equals("6")) {
+            if(input.equals("5")) {
                 deleteSong();
             }
         }
@@ -150,15 +113,8 @@ public class InteractivePrompts {
                 removeSongFromPlaylist((Playlist) playlist);
             }
             if(input.equals("3")) {
-                int count = downloadMusic();
-                ArrayList<Song> songs = new ArrayList<Song>();
-                for(int i = 1; i<=count; i++) {
-                    songs.add(App.library.originalSongList.get(i-1));
-                }
-                for(Song song : songs) {
-                    addSongToPlaylist(song, (Playlist) playlist);
-                }
-                break;
+                downloadMusic();
+                addSongToPlaylist(App.library.originalSongList.get(0), playlist);
             }
             if(input.equals("4")) {
                 reorderPlaylist((Playlist) playlist);
@@ -204,11 +160,8 @@ public class InteractivePrompts {
 
     /*
      *  Interactive interface to download a youtube song or playlist
-     *  Returns the number of songs downloaded during the session
      */
-    public static int downloadMusic() {
-        int count = 0;
-
+    public static void downloadMusic() {
         //Clear terminal
         System.out.print("\033[H\033[2J");  
         System.out.flush(); 
@@ -226,7 +179,7 @@ public class InteractivePrompts {
             if(url.equals("")) {
                 System.out.println(ANSI_RED + "EXITING DOWNLOADER" + ANSI_RESET);
                 App.canPrint = true;
-                return count;
+                return;
             }
             // Downloads the song
             try {
@@ -253,12 +206,11 @@ public class InteractivePrompts {
                         App.viewingCollection = App.library;
                     }
                 }
-                count += titles.size();
+                
                 System.out.println(ANSI_CYAN + "Press enter to exit, or paste another link to download" + ANSI_RESET);
             } catch (Exception e) {
                 System.out.println(ANSI_RED + "ERROR: INVALID URL, TRY AGAIN" + ANSI_RESET);
                 e.printStackTrace();
-                return count;
             }
         }
     }
@@ -311,8 +263,8 @@ public class InteractivePrompts {
             clear = true;
             
             // Ensures the library isn't in a shuffled state
-            if(App.library.isShuffled == true) {
-                App.library.shuffle();
+            if(App.library.isShuffled == 1 || App.library.isShuffled == 2) {
+                App.library.shuffle(0);
             }
 
             // Prints the library and the playlist
@@ -570,8 +522,8 @@ public class InteractivePrompts {
             clear = true;
 
             // Ensures the library isn't in a shuffled state
-            if(App.library.isShuffled == true) {
-                App.library.shuffle();
+            if(App.library.isShuffled == 1 || App.library.isShuffled == 2) {
+                App.library.shuffle(0);
             }
 
             // Prints the library and the playlist
@@ -628,8 +580,8 @@ public class InteractivePrompts {
             clear = true;
 
             // Ensures the library isn't in a shuffled state
-            if(App.library.isShuffled == true) {
-                App.library.shuffle();
+            if(App.library.isShuffled == 1 || App.library.isShuffled == 2) {
+                App.library.shuffle(0);
             }
 
             // Prints the playlist
@@ -723,9 +675,9 @@ public class InteractivePrompts {
             System.out.print("\033[H\033[2J");  
             System.out.flush(); 
 
-            // Ensures the playlist isn't in a shuffled state
-            if(App.library.isShuffled == true) {
-                App.library.shuffle();
+            // Ensures the library isn't in a shuffled state
+            if(App.library.isShuffled == 1 || App.library.isShuffled == 2) {
+                App.library.shuffle(0);
             }
 
             // Prints the playlist
@@ -795,22 +747,6 @@ public class InteractivePrompts {
     }
 
     // NON-INTERACTIVE METHODS
-
-    /*
-     *  Creates a playlist without prompting the user
-     */
-    public static boolean createPlaylist(String name, ArrayList<Song> songs) {
-        Playlist playlist = new Playlist(name);
-        if(App.playlists.contains(playlist)) {
-            return false;
-        }
-        App.playlists.add(playlist);
-        for(Song song : songs) {
-            playlist.add(song);
-        }
-        DataManager.savePlaylists();
-        return true;
-    }
 
     /*
      *  Deletes a playlist without prompting the user

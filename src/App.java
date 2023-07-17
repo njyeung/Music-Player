@@ -97,10 +97,6 @@ public class App {
                     }
                 }
             }
-            if(input.equals("//") | input.equals("exit")) {
-                DataManager.saveSettings();
-                System.exit(0);
-            }
             if(input.equals("r") | input.equals("scroll up")) {
                 scrollIndex = scrollIndex-2;
             }
@@ -507,35 +503,27 @@ public class App {
         // check if it is being shuffled. If it is, add a white SHUFFLE indicator to the end, otherwise add a yellow SHUFFLE indicator
         if(workingCollection instanceof Library) {
             separator = separator.substring (0, separator.length() - 8);
-            if(((Library)workingCollection).isShuffled == false) {
+            if(((Library)workingCollection).isShuffled == 0) {
                 separator = separator + " SHUFFLE";
-            } else {
+            } else if(((Library)workingCollection).isShuffled == 1){
                 separator = separator + ANSI_YELLOW + " SHUFFLE" + ANSI_RESET;
+            } else {
+                separator = separator + ANSI_PURPLE + " SHUFFLE" + ANSI_RESET;
             }
         }
         if(workingCollection instanceof Playlist) {
             separator = separator.substring (0, separator.length() - 8);
-            if(((Playlist)workingCollection).isShuffled == false) {
+            if(((Library)workingCollection).isShuffled == 0) {
                 separator = separator + " SHUFFLE";
-            } else {
+            } else if(((Library)workingCollection).isShuffled == 1){
                 separator = separator + ANSI_YELLOW + " SHUFFLE" + ANSI_RESET;
+            } else {
+                separator = separator + ANSI_PURPLE + " SHUFFLE" + ANSI_RESET;
             }
         }
 
         System.out.println(separator);
         System.out.println(percentTitleVol);
-
-
-        // Prints control cheatsheet lol
-        //System.out.println("1234567890123456789 | 1234567890123456789 | 1234567890123456789 | 1234567890123456789");
-        System.out.println();
-        System.out.println();
-        System.out.println(ANSI_RED);
-        System.out.println("|  q - Volume down   |      w - Mute       |    e - Volume up    |     r -Scroll up   |");
-        System.out.println("|   a - Previous     |   s - Pause/Play    |     d - Next        |    f -Scroll down  |");
-        System.out.println("|  z - Seek forward  |     x - Shuffle     |  c - Seek backward  |     v - Interact   |");
-        System.out.println("|                    |               space - back                |      // - exit     |");
-        System.out.println(ANSI_RESET);
     }
 
     /*
