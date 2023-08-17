@@ -221,7 +221,6 @@ public class MusicCollection {
             isShuffled = 2;
             return 2;
         }
-
         return -1;
     }
 
@@ -253,13 +252,13 @@ public class MusicCollection {
      * 
      * @param originalList - arraylist to shuffle
      */
-    private void simpleShuffle(ArrayList<Song> originalList) {
+    private void simpleShuffle(ArrayList<Song> list) {
         // Perform simple fisher yates shuffle on songList
-        for(int i = originalList.size()-1; i>0; i--) {
+        for(int i = list.size()-1; i>0; i--) {
             int j = (int)(Math.random()*(i+1));
-            Song temp = originalList.get(i);
-            originalList.set(i, originalList.get(j));
-            originalList.set(j, temp);
+            Song temp = list.get(i);
+            list.set(i, list.get(j));
+            list.set(j, temp);
         }
     }
 
@@ -274,7 +273,10 @@ public class MusicCollection {
         ArrayList<Song> table = new ArrayList<Song>(originalList);
         
         // Queue of lists containing songs by the same artist, with each list shuffled before it is returned
-        PriorityQueue<LinkedList<Song>> artistFrequency = getArtistFrequency((Song[]) originalList.toArray());
+        Song[] temp = new Song[originalList.size()];
+        PriorityQueue<LinkedList<Song>> artistFrequency = getArtistFrequency(originalList.toArray(temp));
+        
+        artistFrequency.forEach((x)->System.out.println(x));
 
         // ArrayList containing "spreaded" arrays of songs by the same artist. Each array is the size of the originalList
         // with all the songs spread out among the indexes. The length of the ArrayList is the number of artists + 1 if
@@ -283,12 +285,22 @@ public class MusicCollection {
         while(!artistFrequency.isEmpty()) {
             expanded.add(spread(table.size(), artistFrequency.poll()));
         }
-        
+
+        for(int i = 0; i<expanded.size(); i++){
+            for(int j = 0; j<expanded.get(i).length; j++) {
+                System.out.print(expanded.get(i)[j]);
+            }
+            System.out.println();
+        }
+
         // Takes all the lists of artist's songs and compresses them back into a single array
         table = compress(expanded);
 
         // Lightly shuffle the array as final touchup
         table = stir(table, 0.5);
+
+        System.out.println(table.size()); 
+        System.out.println(table); 
 
         return table;
     }
@@ -378,10 +390,11 @@ public class MusicCollection {
         // 1 -> 3 -> 4 -> 5
         // 0 -> 2 -> 3 -> 4 (-1 to refactor into array)
 
-        while(!songs.isEmpty()) {
-            double currIndex = factor;
+        double currIndex = factor;
+        while(!songs.isEmpty()) { 
+            System.out.println("CurrIndex: " + currIndex);
             returnArray[((int) Math.round(currIndex))-1] = songs.pop();
-            currIndex =+ factor;
+            currIndex = currIndex + factor;
         }
 
         return returnArray;

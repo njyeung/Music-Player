@@ -513,9 +513,9 @@ public class App {
         }
         if(workingCollection instanceof Playlist) {
             separator = separator.substring (0, separator.length() - 8);
-            if(((Library)workingCollection).isShuffled == 0) {
+            if(((MusicCollection)workingCollection).isShuffled == 0) {
                 separator = separator + " SHUFFLE";
-            } else if(((Library)workingCollection).isShuffled == 1){
+            } else if(((MusicCollection)workingCollection).isShuffled == 1){
                 separator = separator + ANSI_YELLOW + " SHUFFLE" + ANSI_RESET;
             } else {
                 separator = separator + ANSI_PURPLE + " SHUFFLE" + ANSI_RESET;
