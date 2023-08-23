@@ -192,7 +192,7 @@ public class MusicCollection {
      *          SHUFFLE ALGORITHM, I ACTUALLY DON'T UNDERSTAND MOST OF THIS EVEN
      *          THOUGH I WROTE IT. BUT IT'S PRETTY GOATED THO
      * 
-     *          4:30AM 7/5/2023 - this code was written on a plane 
+     *          4:30AM 7/5/2023 - this code was written on a plane with no copilot... idr
      */
 
 
