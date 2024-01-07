@@ -324,6 +324,7 @@ public class DataManager {
         // Restore working list and viewing list
         App.changeWorkingList(tempWorkingCollection);
         App.changeViewingList(tempViewingList);
+        
         if(isPlaying) {
             App.play(App.workingCollection.indexOf(currSong));
         }

@@ -227,6 +227,9 @@ public class MusicCollection {
 
     /*
      * No toggling required
+     *  0 - no shuffle
+     *  1 - simple shuffle
+     *  2 - advanced shuffle
      */
     public void shuffle(int specific) {
         if(specific == 0) {
@@ -398,7 +401,7 @@ public class MusicCollection {
     private PriorityQueue<LinkedList<Song>> getArtistFrequency(Song[] array) {
         // Compares the size of the linked lists
         Comparator<LinkedList<Song>> comparator = new LinkedListComparator();
-        PriorityQueue<LinkedList<Song>> queue = new PriorityQueue<LinkedList<Song>>(10, comparator);
+        PriorityQueue<LinkedList<Song>> queue = new PriorityQueue<LinkedList<Song>>(1, comparator);
 
         // Well there goes my plans of efficiency by using a PQ...
         ArrayList<LinkedList<Song>> sorter = new ArrayList<LinkedList<Song>>();

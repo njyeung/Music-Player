@@ -65,15 +65,17 @@ public class App {
         playPause();
 
         while(true) {
+            DataManager.saveSettings();
+
             if(canPrint == true) {
                 printDisplayMessage(viewingCollection);
             }
-            DataManager.saveSettings();
+            
 
             // Reads input from user
             String input = scan.nextLine();
             
-            // Viewing playlist
+            // Check if user is trying to view a playlist
             for(int i = 0; i<playlists.size(); i++) {
                 if(input.equals(playlists.get(i).getName())) {
                     try{
@@ -85,7 +87,7 @@ public class App {
                     }
                 }
             }
-            // Viewing albums
+            // Check if user is trying to view an album
             for(int i = 0; i<albums.size(); i++) {
                 if(input.equals(albums.get(i).getName())) {
                     try{
@@ -97,60 +99,74 @@ public class App {
                     }
                 }
             }
-            if(input.equals("r") | input.equals("scroll up")) {
-                scrollIndex = scrollIndex-2;
-            }
-            if(input.equals("f") | input.equals("scroll down")) {
-                scrollIndex = scrollIndex+2;
-            }
-            if(input.equals("s") | input.equals("play") || input.equals("pause")) {
-                playPause();
-            }
-            if(input.equals("stop")) {
-                stop();
-            }
-            if(input.equals("q") | input.equals("-")) {
-                setVolume(volume -1);
-            }
-            if(input.equals("e") | input.equals("+")) {
-                setVolume(volume +1);
-            }
-            if(input.equals("w") | input.equals("mute")) {
-                setVolume(0);
-            }
-            if(input.equals("d") | input.equals("next")) {
-                playNext();
-            }
-            if(input.equals("a") | input.equals("previous")) {
-                playPrevious();
-            }
-            if(input.equals(" ") | input.equals("back")) {
-                changeViewingList(library);
-            }
-            if(input.equals("z") | input.equals("skip backwards")) {
-                workingList.get(currIndex).setPlayThroughPercent(currSong.getPlayThroughPercent() - 3);
-                continue;
-            }
-            if(input.equals("c") | input.equals("skip forwards")) {
-                workingList.get(currIndex).setPlayThroughPercent(currSong.getPlayThroughPercent() + 3);
-                continue;
-            }
-            if(input.equals("x") | input.equals("shuffle")) {
-                shuffle();
-            }
-            if(input.equals("v") | input.equals("edit")) {
-                if(viewingCollection instanceof Playlist) {
-                    InteractivePrompts.editPlaylist((Playlist) viewingCollection);;
-                }
-                if(viewingCollection instanceof Library) {
-                    InteractivePrompts.editLibrary();
-                }
-            }
 
-            if(input.equals("")) {
-                printDisplayMessage(viewingCollection);
-                DataManager.saveSettings();
-            }
+            switch (input) {
+                case "r":
+                case "scroll up":
+                    scrollIndex = scrollIndex-2;
+                    break;
+                case "f":
+                case "scroll down":
+                    scrollIndex = scrollIndex+2;
+                    break;
+                case "s":
+                case "play":
+                case "pause":
+                    playPause();
+                    break;
+                case "stop":
+                    stop();
+                    break;
+                case "q":
+                case "-":
+                    setVolume(volume -1);
+                    break;
+                case "e":
+                case "+":
+                    setVolume(volume +1);
+                    break;
+                case "w":
+                case "mute":
+                    setVolume(0);
+                    break;
+                case "d":
+                case "next":
+                    playNext();
+                    break;
+                case "a":
+                case "previous":
+                    playPrevious();
+                    break;
+                case " ":
+                case "back":
+                    changeViewingList(library);
+                    break;
+                case "z":
+                case "skip backwards":
+                    workingList.get(currIndex).setPlayThroughPercent(currSong.getPlayThroughPercent() - 3);
+                    break;
+                case "c":
+                case "skip forwards":
+                    workingList.get(currIndex).setPlayThroughPercent(currSong.getPlayThroughPercent() + 3);
+                    break;
+                case "x":
+                case "shuffle":
+                    shuffle();
+                    break;
+                case "v":
+                case "edit":
+                    if(viewingCollection instanceof Playlist) {
+                        InteractivePrompts.editPlaylist((Playlist) viewingCollection);;
+                    }
+                    if(viewingCollection instanceof Library) {
+                        InteractivePrompts.editLibrary();
+                    }
+                    break;
+                case "":
+                    printDisplayMessage(viewingCollection);
+                    DataManager.saveSettings();
+                    break;
+                }
             
             if(input.startsWith("add")) {
                 if(viewingCollection instanceof Playlist) {
